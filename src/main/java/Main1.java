@@ -12,14 +12,14 @@ public class Main1 {
 
         Runnable runSum = () -> {
             long startTime = System.currentTimeMillis();
-            System.out.println("Доп. поток сумму: " + cl.sum(array));
+            System.out.println("Доп. поток сумма: " + cl.sum(array));
             long endTime = System.currentTimeMillis();
             System.out.printf("Время первого потока - %d\n", endTime-startTime);
         };
 
         Runnable runAverage = () -> {
             long startTime = System.currentTimeMillis();
-            System.out.println("Доп. поток сумму: " + cl.average(array));
+            System.out.println("Доп. поток среднее: " + cl.average(array));
             long endTime = System.currentTimeMillis();
             System.out.printf("Время второго потока - %d\n", endTime-startTime);
         };
@@ -30,8 +30,8 @@ public class Main1 {
         thread1.start();
 
         long startTime = System.currentTimeMillis();
-        System.out.println("Главный поток: " + cl.sum(array));
-        System.out.println("Главный поток: " + cl.average(array));
+        System.out.println("Главный поток сумма: " + cl.sum(array));
+        System.out.println("Главный поток среднее: " + cl.average(array));
         long endTime = System.currentTimeMillis();
         System.out.printf("Время основного потока - %d\n", endTime-startTime);
     }
