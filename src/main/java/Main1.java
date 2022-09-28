@@ -10,15 +10,29 @@ public class Main1 {
             array[i] = random.nextInt(100);
         }
 
-        Runnable runSum = () -> System.out.println("Доп. поток сумму: " + cl.sum(array));
-        Runnable runAverage = () -> System.out.println("Доп. поток сумму: " + cl.average(array));
+        Runnable runSum = () -> {
+            long startTime = System.currentTimeMillis();
+            System.out.println("Доп. поток сумму: " + cl.sum(array));
+            long endTime = System.currentTimeMillis();
+            System.out.printf("Время первого потока - %d\n", endTime-startTime);
+        };
+
+        Runnable runAverage = () -> {
+            long startTime = System.currentTimeMillis();
+            System.out.println("Доп. поток сумму: " + cl.average(array));
+            long endTime = System.currentTimeMillis();
+            System.out.printf("Время второго потока - %d\n", endTime-startTime);
+        };
         Thread thread = new Thread(runSum);
         Thread thread1 = new Thread(runAverage);
 
         thread.start();
         thread1.start();
 
+        long startTime = System.currentTimeMillis();
         System.out.println("Главный поток: " + cl.sum(array));
         System.out.println("Главный поток: " + cl.average(array));
+        long endTime = System.currentTimeMillis();
+        System.out.printf("Время основного потока - %d\n", endTime-startTime);
     }
 }
