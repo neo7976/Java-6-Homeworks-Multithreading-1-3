@@ -1,9 +1,4 @@
-package one;
-
 public class Calculator {
-
-    public Calculator() {
-    }
 
     public long sum(int[] array) {
         int sum = 0;
