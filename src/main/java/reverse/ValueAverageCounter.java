@@ -22,6 +22,6 @@ public class ValueAverageCounter extends RecursiveTask<Double> {
         ValueAverageCounter valueAverageCounter2 = new ValueAverageCounter(Arrays.copyOfRange(array, array.length / 2, array.length));
         valueAverageCounter1.fork();
         valueAverageCounter2.fork();
-        return valueAverageCounter1.join() + valueAverageCounter2.join();
+        return (valueAverageCounter1.join() + valueAverageCounter2.join()) / 2;
     }
 }
