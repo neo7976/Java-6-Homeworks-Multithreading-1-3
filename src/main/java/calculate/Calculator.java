@@ -1,3 +1,5 @@
+package calculate;
+
 public class Calculator {
 
     public long sum(int[] array) {
